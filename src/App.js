@@ -1,9 +1,10 @@
-import Categories from "./components/Categories";
+import React from "react";
 import Header from "./components/Header";
-import PizzaBlock from "./components/PizzaBlock";
-import Sort from "./components/Sort";
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
 import "./scss/app.scss";
-import pizzas from "./assets/pizzas.json";
+
+//https://6531a2474d4c2e3f333d3049.mockapi.io/pizzas
 
 function App() {
   return (
@@ -11,16 +12,7 @@ function App() {
       <Header />
       <div className="content">
         <div className="container">
-          <div className="content__top">
-            <Categories />
-            <Sort />
-          </div>
-          <h2 className="content__title">Все пиццы</h2>
-          <div className="content__items">
-            {pizzas.map((pizza) => (
-              <PizzaBlock {...pizza} key={pizza.id} />
-            ))}
-          </div>
+          <NotFound />
         </div>
       </div>
     </div>
