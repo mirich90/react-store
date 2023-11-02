@@ -10,12 +10,14 @@ import "./scss/app.scss";
 //https://6531a2474d4c2e3f333d3049.mockapi.io/pizzas
 
 function App() {
+  const [searchValue, setSearchValue] = React.useState("");
+  console.log(searchValue);
   return (
     <div className="wrapper">
-      <Header />
+      <Header searchValue={searchValue} setSearchValue={setSearchValue} />
       <div className="content">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home searchValue={searchValue} />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
