@@ -8,9 +8,9 @@ export const Search = () => {
   const { setSearchValue } = React.useContext(SearchContext);
   const inputRef = React.useRef();
 
-  const updateSearchInput = React.useCallback(
-    debounce((value) => setSearchValue(value), 250),
-    []
+  const updateSearchInput = React.useMemo(
+    () => debounce((value) => setSearchValue(value), 250),
+    [setSearchValue]
   );
 
   const onChangeInput = (e) => {

@@ -1,22 +1,15 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setSort } from "../redux/slices/filterSlice";
+import { setSortType } from "../redux/slices/filterSlice";
 
-function Sort() {
+export const Sort = React.memo(({ sortType }) => {
   const dispatch = useDispatch();
-  const sort = useSelector((state) => state.filter.sort);
+  const { sortList } = useSelector((state) => state.filter);
   const [isOpen, setOpen] = React.useState(false);
-  const listTypes = [
-    { name: "популярности ⇩", id: "rating" },
-    { name: "популярности ⇧", id: "-rating" },
-    { name: "цене ⇩", id: "price" },
-    { name: "цене ⇧", id: "-price" },
-    { name: "алфавиту ⇩", id: "title" },
-    { name: "алфавиту ⇧", id: "-title" },
-  ];
+  const sortRef = React.useRef();
 
-  const onChangeSort = (id) => {
-    dispatch(setSort(id));
+  const onChangeSort = (obj) => {
+    dispatch(setSortType(obj));
   };
 
   const onClickTypeSort = (obj) => {
@@ -24,8 +17,22 @@ function Sort() {
     setOpen(false);
   };
 
+  React.useEffect(() => {
+    const handleClickOutside = (e) => {
+      console.log(e);
+
+      if (!e.composedPath().includes(sortRef.current)) {
+        setOpen(false);
+      }
+    };
+
+    document.body.addEventListener("click", handleClickOutside);
+
+    return () => document.body.removeEventListener("click", handleClickOutside);
+  }, []);
+
   return (
-    <div className="sort">
+    <div ref={sortRef} className="sort">
       <div className="sort__label">
         <svg
           width="10"
@@ -40,14 +47,14 @@ function Sort() {
           />
         </svg>
         <b>Сортировка по:</b>
-        <span onClick={() => setOpen(!isOpen)}>{sort.name}</span>
+        <span onClick={() => setOpen(!isOpen)}>{sortType.name}</span>
       </div>
       {isOpen && (
         <div className="sort__popup">
           <ul>
-            {listTypes.map((obj, i) => (
+            {sortList.map((obj, i) => (
               <li
-                className={sort.id === obj.id ? "active" : ""}
+                className={sortType.id === obj.id ? "active" : ""}
                 onClick={() => onClickTypeSort(obj)}
                 key={i}
               >
@@ -59,6 +66,6 @@ function Sort() {
       )}
     </div>
   );
-}
+});
 
 export default Sort;
