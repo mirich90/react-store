@@ -12,10 +12,12 @@ import Sort from "../components/Sort";
 
 export default function Home() {
   const dispatch = useDispatch();
-  const { categoryId, currentPage, limit, sort } = useSelector(
-    (state) => state.filter
-  );
-  const sortId = sort.id;
+  const {
+    categoryId,
+    currentPage,
+    limit,
+    sort: { id: sortId },
+  } = useSelector((state) => state.filter);
 
   const { searchValue } = React.useContext(SearchContext);
   const [pizzas, setPizzas] = React.useState([]);
@@ -70,6 +72,7 @@ export default function Home() {
       <Pagination
         lengthPage={2}
         onChangePage={(number) => onChangePage(number)}
+        currentPage={currentPage}
       />
     </div>
   );

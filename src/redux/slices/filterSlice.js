@@ -13,15 +13,18 @@ export const filterSlice = createSlice({
   },
   reducers: {
     setCategoryId(state, action) {
+      state.currentPage = 1;
       state.categoryId = action.payload;
     },
     setCurrentPage(state, action) {
       state.currentPage = action.payload;
     },
     setSort(state, action) {
+      state.currentPage = 1;
       state.sort = action.payload;
     },
     setLimit(state, action) {
+      state.currentPage = 1;
       state.sort = action.payload;
     },
   },
