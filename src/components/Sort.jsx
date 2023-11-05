@@ -19,8 +19,6 @@ export const Sort = React.memo(({ sortType }) => {
 
   React.useEffect(() => {
     const handleClickOutside = (e) => {
-      console.log(e);
-
       if (!e.composedPath().includes(sortRef.current)) {
         setOpen(false);
       }
