@@ -1,8 +1,7 @@
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { CartEmpty } from "../components/CartEmpty";
-import { CartItem } from "../components/CartItem";
+import CartItem from "../components/CartItem";
 import { clearItems, SelectorCart } from "../redux/slices/cartSlice";
 
 export default function Cart() {

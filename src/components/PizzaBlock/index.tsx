@@ -2,13 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem, SelectorCartItemById } from "../../redux/slices/cartSlice";
+import IPizzaBlockProps from "../../interfaces/IPizzaBlockProps";
 
-function PizzaBlock({ id, title, price, imageUrl, types, sizes }) {
+const PizzaBlock: React.FC<IPizzaBlockProps> = ({
+  id,
+  title,
+  price,
+  imageUrl,
+  types,
+  sizes,
+}) => {
   const dispatch = useDispatch();
   const cartItem = useSelector(SelectorCartItemById(id));
-  const countItem = cartItem ? cartItem.count : 0;
-  const [activeType, setActiveType] = React.useState(0);
-  const [activeSize, setActiveSize] = React.useState(0);
+  const countItem: number = cartItem ? cartItem.count : 0;
+  const [activeType, setActiveType] = React.useState<number>(0);
+  const [activeSize, setActiveSize] = React.useState<number>(0);
   const typeNames = ["тонкое", "традиционное"];
 
   const onClickAdd = () => {
@@ -32,7 +40,7 @@ function PizzaBlock({ id, title, price, imageUrl, types, sizes }) {
         </Link>
         <div className="pizza-block__selector">
           <ul>
-            {types.map((typeId) => (
+            {types.map((typeId: number) => (
               <li
                 onClick={() => setActiveType(typeId)}
                 key={typeId}
@@ -79,5 +87,5 @@ function PizzaBlock({ id, title, price, imageUrl, types, sizes }) {
       </div>
     </div>
   );
-}
+};
 export default PizzaBlock;

@@ -1,24 +1,28 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import ISortProps from "../interfaces/ISortProps";
+import ISortType from "../interfaces/ISortType";
 import { setSortType } from "../redux/slices/filterSlice";
 
-export const Sort = React.memo(({ sortType }) => {
+export const Sort: React.FC<ISortProps> = ({ sortType }) => {
   const dispatch = useDispatch();
-  const { sortList } = useSelector((state) => state.filter);
+  const sortList: ISortType[] = useSelector(
+    (state: any) => state.filter.sortList
+  );
   const [isOpen, setOpen] = React.useState(false);
-  const sortRef = React.useRef();
+  const sortRef = React.useRef<HTMLDivElement>(null);
 
-  const onChangeSort = (obj) => {
+  const onChangeSort = (obj: ISortType) => {
     dispatch(setSortType(obj));
   };
 
-  const onClickTypeSort = (obj) => {
+  const onClickTypeSort = (obj: ISortType) => {
     onChangeSort(obj);
     setOpen(false);
   };
 
   React.useEffect(() => {
-    const handleClickOutside = (e) => {
+    const handleClickOutside = (e: any) => {
       if (!e.composedPath().includes(sortRef.current)) {
         setOpen(false);
       }
@@ -64,6 +68,6 @@ export const Sort = React.memo(({ sortType }) => {
       )}
     </div>
   );
-});
+};
 
 export default Sort;
