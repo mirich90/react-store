@@ -9,7 +9,7 @@ export const Sort: React.FC<ISortProps> = ({ sortType }) => {
   const sortList: ISortType[] = useSelector(
     (state: any) => state.filter.sortList
   );
-  const [isOpen, setOpen] = React.useState(false);
+  const [isOpen, setOpen] = React.useState<boolean>(false);
   const sortRef = React.useRef<HTMLDivElement>(null);
 
   const onChangeSort = (obj: ISortType) => {
@@ -22,8 +22,10 @@ export const Sort: React.FC<ISortProps> = ({ sortType }) => {
   };
 
   React.useEffect(() => {
-    const handleClickOutside = (e: any) => {
-      if (!e.composedPath().includes(sortRef.current)) {
+    const handleClickOutside = (e: MouseEvent) => {
+      const current = sortRef.current;
+      const path = e.composedPath();
+      if (current && !path.includes(current)) {
         setOpen(false);
       }
     };

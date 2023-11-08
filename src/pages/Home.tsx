@@ -14,27 +14,30 @@ import PizzaBlock from "../components/PizzaBlock";
 import Skeleton from "../components/PizzaBlock/Skeleton";
 import Sort from "../components/Sort";
 import { fetchPizzas } from "../redux/slices/pizzaSlice";
+import ISortType from "../interfaces/ISortType";
+import ISearch from "../interfaces/ISearch";
+import IPizzaBlockProps from "../interfaces/IPizzaBlockProps";
 
-export default function Home() {
+const Home = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const isSearch = React.useRef(false);
-  const isMounted = React.useRef(false);
+  const isSearch = React.useRef<boolean>(false);
+  const isMounted = React.useRef<boolean>(false);
 
-  const { items: pizzas, status } = useSelector((state) => state.pizza);
+  const { items: pizzas, status } = useSelector((state: any) => state.pizza);
   const { categoryId, page, limit, sortType, sortList, searchValue } =
-    useSelector((state) => state.filter);
+    useSelector((state: any) => state.filter);
 
   const sortId = sortType.id;
   const order = sortId.includes("-") ? "asc" : "desc";
   const sortBy = sortId.replace("-", "");
 
-  const onChangeCategory = React.useCallback((id) => {
+  const onChangeCategory = React.useCallback((id: number) => {
     dispatch(setCategoryId(id));
   }, []);
 
-  const onChangePage = (number) => {
-    dispatch(setPage(number));
+  const onChangePage = (pageId: number) => {
+    dispatch(setPage(pageId));
   };
 
   React.useEffect(() => {
@@ -54,7 +57,7 @@ export default function Home() {
   React.useEffect(() => {
     if (window.location.search) {
       const params = qs.parse(window.location.search.substring(1));
-      const sortBy = sortList.find((obj) => obj.id === params.id);
+      const sortBy = sortList.find((obj: ISortType) => obj.id === params.id);
 
       dispatch(setFilters({ ...params, sortBy }));
 
@@ -69,7 +72,10 @@ export default function Home() {
       const category = categoryId > 0 ? `category=${categoryId}` : "";
       const search = searchValue ? `search=${searchValue}` : "";
 
-      dispatch(fetchPizzas({ order, sortBy, category, search, page, limit }));
+      dispatch(
+        // @ts-ignore
+        fetchPizzas({ order, sortBy, category, search, page, limit })
+      );
     };
 
     if (!isSearch.current) {
@@ -79,7 +85,7 @@ export default function Home() {
     isSearch.current = false;
   }, [categoryId, sortType.id, searchValue, page, limit]);
 
-  const pizzasBlocks = pizzas.map((pizza) => (
+  const pizzasBlocks = pizzas.map((pizza: IPizzaBlockProps) => (
     <PizzaBlock {...pizza} key={pizza.id} />
   ));
 
@@ -90,7 +96,7 @@ export default function Home() {
       <div className="content__top">
         <Categories
           value={categoryId}
-          onChangeCategory={(i) => onChangeCategory(i)}
+          onChangeCategory={(i: number) => onChangeCategory(i)}
         />
         <Sort sortType={sortType} />
       </div>
@@ -109,9 +115,11 @@ export default function Home() {
 
       <Pagination
         lengthPage={2}
-        onChangePage={(number) => onChangePage(number)}
+        onChangePage={(pageId: number) => onChangePage(pageId)}
         currentPage={page}
       />
     </div>
   );
-}
+};
+
+export default Home;

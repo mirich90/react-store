@@ -1,4 +1,4 @@
-type ICartItem = {
+interface ICartItem {
   id: number;
   title: string;
   type: string;
@@ -6,5 +6,5 @@ type ICartItem = {
   count: number;
   imageUrl: string;
   size: number;
-};
+}
 export default ICartItem;

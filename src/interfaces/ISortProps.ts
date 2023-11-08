@@ -1,7 +1,7 @@
 import ISortType from "./ISortType";
 
-type ISortProps = {
+interface ISortProps {
   sortType: ISortType;
-};
+}
 
 export default ISortProps;

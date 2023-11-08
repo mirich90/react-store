@@ -1,6 +1,6 @@
-type ICategoriesProps = {
+interface ICategoriesProps {
   value: number;
-  onChangeCategory: any;
-};
+  onChangeCategory: (id: number) => void;
+}
 
 export default ICategoriesProps;

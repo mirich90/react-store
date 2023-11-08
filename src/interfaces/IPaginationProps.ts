@@ -1,6 +1,6 @@
-type IPaginationProps = {
+interface IPaginationProps {
   lengthPage: number;
-  onChangePage: any;
+  onChangePage: (pageId: number) => void;
   currentPage: number;
-};
+}
 export default IPaginationProps;
