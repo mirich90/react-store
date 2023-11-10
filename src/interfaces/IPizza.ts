@@ -1,4 +1,4 @@
-interface IPizzaBlockProps {
+interface IPizza {
   id: number;
   title: string;
   price: number;
@@ -6,4 +6,4 @@ interface IPizzaBlockProps {
   types: number[];
   sizes: number[];
 }
-export default IPizzaBlockProps;
+export default IPizza;

@@ -3,8 +3,8 @@ interface ICartItem {
   title: string;
   type: string;
   price: number;
-  count: number;
   imageUrl: string;
   size: number;
+  count: number;
 }
 export default ICartItem;

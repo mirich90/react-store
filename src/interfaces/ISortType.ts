@@ -1,5 +1,5 @@
 interface ISortType {
   name: string;
-  id: string;
+  id: "rating" | "price" | "title" | "-rating" | "-price" | "-title";
 }
 export default ISortType;

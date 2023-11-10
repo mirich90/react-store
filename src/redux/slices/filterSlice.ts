@@ -1,8 +1,10 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import IFilterSliceState from "../../interfaces/IFilterSliceState";
+import ISortType from "../../interfaces/ISortType";
 
 export const filterSlice = createSlice({
   name: "filter",
-  initialState: {
+  initialState: <IFilterSliceState>{
     searchValue: "",
     categoryId: 0,
     sortList: [
@@ -15,35 +17,44 @@ export const filterSlice = createSlice({
     ],
     sortType: {
       name: "популярности ⇧",
-      id: "raiting",
+      id: "rating",
     },
     page: 1,
     limit: 6,
   },
   reducers: {
-    setSearchValue(state, action) {
+    setSearchValue(state, action: PayloadAction<string>) {
       state.page = 1;
       state.searchValue = action.payload;
     },
-    setCategoryId(state, action) {
+    setCategoryId(state, action: PayloadAction<number>) {
       state.page = 1;
       state.categoryId = action.payload;
     },
-    setPage(state, action) {
+    setPage(state, action: PayloadAction<number>) {
       state.page = action.payload;
     },
-    setSortType(state, action) {
+    setSortType(state, action: PayloadAction<ISortType>) {
       state.page = 1;
       state.sortType = action.payload;
     },
-    setLimit(state, action) {
+    setLimit(state, action: PayloadAction<number>) {
       state.page = 1;
       state.limit = action.payload;
     },
-    setFilters(state, action) {
-      state.sortType = action.payload.sort;
-      state.page = Number(action.payload.page);
-      state.categoryId = Number(action.payload.categoryId);
+    setFilters(state, action: PayloadAction<IFilterSliceState>) {
+      if (Object.keys(action.payload).length) {
+        state.page = Number(action.payload.page);
+        state.categoryId = Number(action.payload.categoryId);
+        state.sortType = action.payload.sortType;
+      } else {
+        state.page = 1;
+        state.categoryId = 0;
+        state.sortType = {
+          name: "популярности ⇧",
+          id: "rating",
+        };
+      }
     },
   },
 });

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem, SelectorCartItemById } from "../../redux/slices/cartSlice";
-import IPizzaBlockProps from "../../interfaces/IPizzaBlockProps";
+import IPizzaBlockProps from "../../interfaces/IPizza";
 
 const PizzaBlock: React.FC<IPizzaBlockProps> = ({
   id,
@@ -27,6 +27,7 @@ const PizzaBlock: React.FC<IPizzaBlockProps> = ({
       imageUrl,
       type: typeNames[activeType],
       size: sizes[activeSize],
+      count: 0,
     };
     dispatch(addItem(item));
   };

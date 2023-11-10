@@ -15,8 +15,7 @@ import Skeleton from "../components/PizzaBlock/Skeleton";
 import Sort from "../components/Sort";
 import { fetchPizzas } from "../redux/slices/pizzaSlice";
 import ISortType from "../interfaces/ISortType";
-import ISearch from "../interfaces/ISearch";
-import IPizzaBlockProps from "../interfaces/IPizzaBlockProps";
+import IPizzaBlockProps from "../interfaces/IPizza";
 
 const Home = () => {
   const navigate = useNavigate();
