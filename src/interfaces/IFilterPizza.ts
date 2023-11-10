@@ -1,12 +1,10 @@
-import ISortType from "./ISortType";
-
 interface IFilterPizza {
   search: string;
-  category: number;
-  sortBy: ISortType;
-  page: number;
-  limit: number;
-  order: "ASC" | "DESC";
+  category: string;
+  sortBy: string;
+  page: string;
+  limit: string;
+  order: string;
 }
 
 export default IFilterPizza;

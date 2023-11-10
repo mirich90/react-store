@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
-import ICartItem from "../../interfaces/ICartItem";
 import IFilterPizza from "../../interfaces/IFilterPizza";
 import IPizza from "../../interfaces/IPizza";
 import IPizzaSliceState from "../../interfaces/IPizzaSliceState";
+import IStatus from "../../interfaces/IStatus";
 
 export const fetchPizzas = createAsyncThunk<IPizza[], IFilterPizza>(
   "pizza/fetchPizzasStatus",
@@ -17,30 +17,26 @@ export const fetchPizzas = createAsyncThunk<IPizza[], IFilterPizza>(
 
 export const pizzaSlice = createSlice({
   name: "pizza",
-  initialState: <IPizzaSliceState>{
+  initialState: {
     items: [],
     status: "loading", //loading | success | error
-  },
+  } as IPizzaSliceState,
   reducers: {
     setItems(state, action) {
       state.items = action.payload;
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchPizzas.pending, (state, action) => {
-      state.status = "loading";
-      state.items = [];
-    });
     builder.addCase(fetchPizzas.pending, (state) => {
-      state.status = "loading";
+      state.status = IStatus.LOADING;
       state.items = [];
     });
     builder.addCase(fetchPizzas.fulfilled, (state, action) => {
       state.items = action.payload;
-      state.status = "success";
+      state.status = IStatus.SUCCESS;
     });
-    builder.addCase(fetchPizzas.fulfilled, (state, action) => {
-      state.status = "error";
+    builder.addCase(fetchPizzas.rejected, (state) => {
+      state.status = IStatus.ERROR;
       state.items = [];
     });
   },

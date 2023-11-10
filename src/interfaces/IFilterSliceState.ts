@@ -1,8 +1,8 @@
 import ISortType from "./ISortType";
 
 interface IFilterSliceState {
-  searchValue: string;
-  categoryId: number;
+  search: string;
+  category: number;
   sortList: ISortType[];
   sortType: ISortType;
   page: number;

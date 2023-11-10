@@ -1,8 +1,9 @@
 import IPizza from "./IPizza";
+import IStatus from "./IStatus";
 
 interface IPizzaSliceState {
   items: IPizza[];
-  status: "loading" | "success" | "error";
+  status: IStatus;
 }
 
 export default IPizzaSliceState;

@@ -15,14 +15,14 @@ const CartItem: React.FC<ICartItem> = ({
   const dispatch = useDispatch();
 
   const onClickPlus = () => {
-    dispatch(addItem({ id }));
+    dispatch(addItem({ id } as ICartItem));
   };
   const onClickMinus = () => {
-    dispatch(minusItem({ id }));
+    dispatch(minusItem({ id } as ICartItem));
   };
   const onClickRemove = () => {
     if (window.confirm("Вы действительно хотите удалить товар из корзины?")) {
-      dispatch(removeItem({ id }));
+      dispatch(removeItem({ id } as ICartItem));
     }
   };
 

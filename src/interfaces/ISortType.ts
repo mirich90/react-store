@@ -1,5 +1,7 @@
+import ISortId from "./ISortId";
+
 interface ISortType {
   name: string;
-  id: "rating" | "price" | "title" | "-rating" | "-price" | "-title";
+  id: ISortId;
 }
 export default ISortType;

@@ -1,35 +1,35 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import IFilterSliceState from "../../interfaces/IFilterSliceState";
+import ISortId from "../../interfaces/ISortId";
+import ISortName from "../../interfaces/ISortName";
 import ISortType from "../../interfaces/ISortType";
+import SortTypeDefault from "../../interfaces/ISortTypeDefault";
 
 export const filterSlice = createSlice({
   name: "filter",
   initialState: <IFilterSliceState>{
-    searchValue: "",
-    categoryId: 0,
+    search: "",
+    category: 0,
     sortList: [
-      { name: "популярности ⇩", id: "rating" },
-      { name: "популярности ⇧", id: "-rating" },
-      { name: "цене ⇩", id: "price" },
-      { name: "цене ⇧", id: "-price" },
-      { name: "алфавиту ⇩", id: "title" },
-      { name: "алфавиту ⇧", id: "-title" },
+      { name: ISortName.RATING_DESC, id: ISortId.RATING_DESC },
+      { name: ISortName.RATING_ASC, id: ISortId.RATING_ASC },
+      { name: ISortName.PRICE_DESC, id: ISortId.PRICE_DESC },
+      { name: ISortName.PRICE_ASC, id: ISortId.PRICE_ASC },
+      { name: ISortName.TITLE_DESC, id: ISortId.TITLE_DESC },
+      { name: ISortName.TITLE_ASC, id: ISortId.TITLE_ASC },
     ],
-    sortType: {
-      name: "популярности ⇧",
-      id: "rating",
-    },
+    sortType: SortTypeDefault,
     page: 1,
     limit: 6,
   },
   reducers: {
-    setSearchValue(state, action: PayloadAction<string>) {
+    setSearch(state, action: PayloadAction<string>) {
       state.page = 1;
-      state.searchValue = action.payload;
+      state.search = action.payload;
     },
-    setCategoryId(state, action: PayloadAction<number>) {
+    setCategory(state, action: PayloadAction<number>) {
       state.page = 1;
-      state.categoryId = action.payload;
+      state.category = action.payload;
     },
     setPage(state, action: PayloadAction<number>) {
       state.page = action.payload;
@@ -45,14 +45,14 @@ export const filterSlice = createSlice({
     setFilters(state, action: PayloadAction<IFilterSliceState>) {
       if (Object.keys(action.payload).length) {
         state.page = Number(action.payload.page);
-        state.categoryId = Number(action.payload.categoryId);
+        state.category = Number(action.payload.category);
         state.sortType = action.payload.sortType;
       } else {
         state.page = 1;
-        state.categoryId = 0;
+        state.category = 0;
         state.sortType = {
           name: "популярности ⇧",
-          id: "rating",
+          id: ISortId.RATING_DESC,
         };
       }
     },
@@ -60,12 +60,12 @@ export const filterSlice = createSlice({
 });
 
 export const {
-  setCategoryId,
+  setCategory,
   setPage,
   setSortType,
   setLimit,
   setFilters,
-  setSearchValue,
+  setSearch,
 } = filterSlice.actions;
 
 export default filterSlice.reducer;

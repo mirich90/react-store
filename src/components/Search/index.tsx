@@ -2,7 +2,7 @@ import React from "react";
 import debounce from "lodash.debounce";
 import styles from "./Search.module.scss";
 import { useDispatch } from "react-redux";
-import { setSearchValue } from "../../redux/slices/filterSlice";
+import { setSearch } from "../../redux/slices/filterSlice";
 
 export const Search: React.FC = () => {
   const dispatch = useDispatch();
@@ -10,8 +10,8 @@ export const Search: React.FC = () => {
   const inputRef = React.useRef<HTMLInputElement>(null);
 
   const updateSearchInput = React.useMemo(
-    () => debounce((str: string) => dispatch(setSearchValue(str)), 250),
-    [setSearchValue]
+    () => debounce((str: string) => dispatch(setSearch(str)), 250),
+    [setSearch]
   );
 
   const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,7 +21,7 @@ export const Search: React.FC = () => {
   };
 
   const clearInput = () => {
-    dispatch(setSearchValue(""));
+    dispatch(setSearch(""));
     setValue("");
     updateSearchInput("");
     inputRef.current?.focus();
