@@ -7,7 +7,7 @@ import SortTypeDefault from "../../interfaces/ISortTypeDefault";
 
 export const filterSlice = createSlice({
   name: "filter",
-  initialState: <IFilterSliceState>{
+  initialState: {
     search: "",
     category: 0,
     sortList: [
@@ -21,7 +21,7 @@ export const filterSlice = createSlice({
     sortType: SortTypeDefault,
     page: 1,
     limit: 6,
-  },
+  } as IFilterSliceState,
   reducers: {
     setSearch(state, action: PayloadAction<string>) {
       state.page = 1;

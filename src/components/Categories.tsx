@@ -1,10 +1,16 @@
 import React from "react";
 import ICategoriesProps from "../interfaces/ICategoriesProps";
+import useWhyDidYouUpdate from "ahooks/lib/useWhyDidYouUpdate";
 
 const Categories: React.FC<ICategoriesProps> = ({
   value,
   onChangeCategory,
 }) => {
+  useWhyDidYouUpdate("Categories", {
+    value,
+    onChangeCategory,
+  });
+
   const categories = [
     "Все",
     "Мясные",
@@ -31,4 +37,4 @@ const Categories: React.FC<ICategoriesProps> = ({
   );
 };
 
-export default Categories;
+export default React.memo(Categories);

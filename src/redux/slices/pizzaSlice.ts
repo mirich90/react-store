@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import IFilterPizza from "../../interfaces/IFilterPizza";
 import IPizza from "../../interfaces/IPizza";

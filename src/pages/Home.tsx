@@ -101,10 +101,7 @@ const Home: React.FC = () => {
   return (
     <div className="container">
       <div className="content__top">
-        <Categories
-          value={category}
-          onChangeCategory={(i: number) => onChangeCategory(i)}
-        />
+        <Categories value={category} onChangeCategory={onChangeCategory} />
         <Sort sortType={sortType} />
       </div>
 

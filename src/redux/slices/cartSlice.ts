@@ -5,10 +5,10 @@ import { RootState } from "../store";
 
 export const cartSlice = createSlice({
   name: "cart",
-  initialState: <ICartSliceState>{
+  initialState: {
     totalPrice: 0,
     items: [],
-  },
+  } as ICartSliceState,
   reducers: {
     addItem(state, action: PayloadAction<ICartItem>) {
       const findItem = state.items.find((obj) => obj.id === action.payload.id);

@@ -72,4 +72,4 @@ export const Sort: React.FC<ISortProps> = ({ sortType }) => {
   );
 };
 
-export default Sort;
+export default React.memo(Sort);
