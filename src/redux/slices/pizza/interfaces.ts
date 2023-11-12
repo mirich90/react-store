@@ -1,5 +1,5 @@
-import IPizza from "./IPizza";
-import IStatus from "./IStatus";
+import IPizza from "../../../interfaces/IPizza";
+import IStatus from "../../../interfaces/IStatus";
 
 interface IPizzaSliceState {
   items: IPizza[];

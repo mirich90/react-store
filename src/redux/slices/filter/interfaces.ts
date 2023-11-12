@@ -1,4 +1,4 @@
-import ISortType from "./ISortType";
+import ISortType from "../../../interfaces/ISortType";
 
 interface IFilterSliceState {
   search: string;

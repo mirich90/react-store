@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addItem, SelectorCartItemById } from "../../redux/slices/cartSlice";
+import { addItem } from "../../redux/slices/cart/slice";
+import { SelectorCartItemById } from "../../redux/slices/cart/selectors";
 import IPizzaBlockProps from "../../interfaces/IPizza";
 
 const PizzaBlock: React.FC<IPizzaBlockProps> = ({

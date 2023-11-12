@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import IFilterPizza from "../../interfaces/IFilterPizza";
-import IPizza from "../../interfaces/IPizza";
-import IPizzaSliceState from "../../interfaces/IPizzaSliceState";
-import IStatus from "../../interfaces/IStatus";
+import IFilterPizza from "../../../interfaces/IFilterPizza";
+import IPizza from "../../../interfaces/IPizza";
+import IPizzaSliceState from "./interfaces";
+import IStatus from "../../../interfaces/IStatus";
 
 export const fetchPizzas = createAsyncThunk<IPizza[], IFilterPizza>(
   "pizza/fetchPizzasStatus",

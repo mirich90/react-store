@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ICartItem from "../interfaces/ICartItem";
-import { addItem, removeItem, minusItem } from "../redux/slices/cartSlice";
+import { addItem, removeItem, minusItem } from "../redux/slices/cart/slice";
 
 const CartItem: React.FC<ICartItem> = ({
   id,

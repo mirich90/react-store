@@ -2,14 +2,14 @@ import React from "react";
 import qs from "qs";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { setCategory, setPage, setFilters } from "../redux/slices/filterSlice";
+import { setCategory, setPage, setFilters } from "../redux/slices/filter/slice";
 
 import Categories from "../components/Categories";
 import { Pagination } from "../components/Pagination";
 import PizzaBlock from "../components/PizzaBlock";
 import Skeleton from "../components/PizzaBlock/Skeleton";
 import Sort from "../components/Sort";
-import { fetchPizzas } from "../redux/slices/pizzaSlice";
+import { fetchPizzas } from "../redux/slices/pizza/slice";
 import ISortType from "../interfaces/ISortType";
 import IPizzaBlockProps from "../interfaces/IPizza";
 import { RootState, useAppDispatch } from "../redux/store";

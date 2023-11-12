@@ -1,4 +1,4 @@
-import ICartItem from "./ICartItem";
+import ICartItem from "../../../interfaces/ICartItem";
 
 interface ICartSliceState {
   items: ICartItem[];

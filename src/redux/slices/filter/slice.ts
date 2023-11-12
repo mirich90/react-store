@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import IFilterSliceState from "../../interfaces/IFilterSliceState";
-import ISortId from "../../interfaces/ISortId";
-import ISortName from "../../interfaces/ISortName";
-import ISortType from "../../interfaces/ISortType";
-import SortTypeDefault from "../../interfaces/ISortTypeDefault";
+import IFilterSliceState from "./interfaces";
+import ISortId from "../../../interfaces/ISortId";
+import ISortName from "../../../interfaces/ISortName";
+import ISortType from "../../../interfaces/ISortType";
+import SortTypeDefault from "../../../interfaces/ISortTypeDefault";
 
 export const filterSlice = createSlice({
   name: "filter",

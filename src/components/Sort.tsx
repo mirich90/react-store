@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import ISortProps from "../interfaces/ISortProps";
 import ISortType from "../interfaces/ISortType";
-import { setSortType } from "../redux/slices/filterSlice";
+import { setSortType } from "../redux/slices/filter/slice";
 
 export const Sort: React.FC<ISortProps> = ({ sortType }) => {
   const dispatch = useDispatch();
