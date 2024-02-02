@@ -1,4 +1,4 @@
-interface IFilterPizza {
+interface IFilterProduct {
   search: string;
   category: string;
   sortBy: string;
@@ -7,4 +7,4 @@ interface IFilterPizza {
   order: string;
 }
 
-export default IFilterPizza;
+export default IFilterProduct;

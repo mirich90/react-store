@@ -1,10 +1,10 @@
 interface ICartItem {
   id: number;
   title: string;
-  type: string;
+  material: string;
   price: number;
   imageUrl: string;
-  size: number;
+  color: number;
   count: number;
 }
 export default ICartItem;

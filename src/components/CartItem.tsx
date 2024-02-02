@@ -6,11 +6,11 @@ import { addItem, removeItem, minusItem } from "../redux/slices/cart/slice";
 const CartItem: React.FC<ICartItem> = ({
   id,
   title,
-  type,
+  material,
   price,
   count,
   imageUrl,
-  size,
+  color,
 }) => {
   const dispatch = useDispatch();
 
@@ -29,12 +29,12 @@ const CartItem: React.FC<ICartItem> = ({
   return (
     <div className="cart__item">
       <div className="cart__item-img">
-        <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
+        <img className="product-block__image" src={imageUrl} alt="Product" />
       </div>
       <div className="cart__item-info">
         <h3>{title}</h3>
         <p>
-          {type}, {size} см.
+          {material}, {color}
         </p>
       </div>
       <div className="cart__item-count">

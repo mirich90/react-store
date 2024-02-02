@@ -8,13 +8,13 @@ import MainLayout from "./layouts/MainLayout";
 const Cart = React.lazy(
   () => import(/* webpackChunkName: "Cart" */ "./pages/Cart")
 );
-const FullPizza = React.lazy(
-  () => import(/* webpackChunkName: "FullPizza" */ "./pages/FullPizza")
+const FullProduct = React.lazy(
+  () => import(/* webpackChunkName: "FullProduct" */ "./pages/FullProduct")
 );
 const NotFound = React.lazy(
   () => import(/* webpackChunkName: "NotFound" */ "./pages/NotFound")
 );
-//https://6531a2474d4c2e3f333d3049.mockapi.io/pizzas
+//https://65b7b40246324d531d55478c.mockapi.io/products
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
         <Route path="/" element={<MainLayout />}>
           <Route path="" element={<Home />} />
           <Route path="cart" element={<Cart />} />
-          <Route path="pizzas/:id" element={<FullPizza />} />
+          <Route path="products/:id" element={<FullProduct />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

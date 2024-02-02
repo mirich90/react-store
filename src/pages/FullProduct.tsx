@@ -2,10 +2,10 @@ import axios from "axios";
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
-const FullPizza: React.FC = () => {
+const FullProduct: React.FC = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const [pizza, setPizza] = React.useState<{
+  const [product, setProduct] = React.useState<{
     imageUrl: string;
     title: string;
     price: number;
@@ -16,27 +16,27 @@ const FullPizza: React.FC = () => {
   });
 
   React.useEffect(() => {
-    const fetchPizzas = async () => {
+    const fetchProducts = async () => {
       try {
         const { data } = await axios.get(
-          `https://6531a2474d4c2e3f333d3049.mockapi.io/pizzas/${id}`
+          `https://65b7b40246324d531d55478c.mockapi.io/products/${id}`
         );
-        setPizza(data);
+        setProduct(data);
       } catch (error) {
-        alert("Ошибка при получении пиццы");
+        alert("Ошибка при получении масок");
         navigate("/");
       }
     };
-    fetchPizzas();
+    fetchProducts();
   }, []);
 
   return (
     <div>
-      <img src={pizza.imageUrl} />
-      {pizza.title}
+      <img src={product.imageUrl} />
+      {product.title}
     </div>
   );
-  // return <div>   <PizzaBlock {...pizza}  /></div>;
+  // return <div>   <ProductBlock {...product}  /></div>;
 };
 
-export default FullPizza;
+export default FullProduct;

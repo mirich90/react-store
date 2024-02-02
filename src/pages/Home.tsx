@@ -6,12 +6,12 @@ import { setCategory, setPage, setFilters } from "../redux/slices/filter/slice";
 
 import Categories from "../components/Categories";
 import { Pagination } from "../components/Pagination";
-import PizzaBlock from "../components/PizzaBlock";
-import Skeleton from "../components/PizzaBlock/Skeleton";
+import ProductBlock from "../components/ProductBlock";
+import Skeleton from "../components/ProductBlock/Skeleton";
 import Sort from "../components/Sort";
-import { fetchPizzas } from "../redux/slices/pizza/slice";
+import { fetchProducts } from "../redux/slices/product/slice";
 import ISortType from "../interfaces/ISortType";
-import IPizzaBlockProps from "../interfaces/IPizza";
+import IProductBlockProps from "../interfaces/IProduct";
 import { RootState, useAppDispatch } from "../redux/store";
 import ISort from "../interfaces/ISortId";
 import SortTypeDefault from "../interfaces/ISortTypeDefault";
@@ -22,7 +22,9 @@ const Home: React.FC = () => {
   const isSearch = React.useRef<boolean>(false);
   const isMounted = React.useRef<boolean>(false);
 
-  const { items: pizzas, status } = useSelector((state: any) => state.pizza);
+  const { items: products, status } = useSelector(
+    (state: any) => state.product
+  );
   const { category, page, limit, sortType, search } = useSelector(
     (state: RootState) => state.filter
   );
@@ -68,14 +70,14 @@ const Home: React.FC = () => {
   React.useEffect(() => {
     window.scroll(0, 0);
 
-    const getPizzas = async () => {
+    const getProducts = async () => {
       const categoryId = category > 0 ? `category=${category}` : "";
       const searchValue = search ? `search=${search}` : "";
-      const typeOrder = order.toUpperCase();
+      const materialOrder = order.toUpperCase();
 
       dispatch(
-        fetchPizzas({
-          order: typeOrder,
+        fetchProducts({
+          order: materialOrder,
           sortBy,
           category: String(categoryId),
           search: searchValue,
@@ -86,14 +88,14 @@ const Home: React.FC = () => {
     };
 
     // if (!isSearch.current) {
-    getPizzas();
+    getProducts();
     // }
 
     // isSearch.current = false;
   }, [category, sortType.id, search, page, limit]);
 
-  const pizzasBlocks = pizzas.map((pizza: IPizzaBlockProps) => (
-    <PizzaBlock {...pizza} key={pizza.id} />
+  const productsBlocks = products.map((product: IProductBlockProps) => (
+    <ProductBlock {...product} key={product.id} />
   ));
 
   const skeleton = [...new Array(1)].map((_, i) => <Skeleton key={i} />);
@@ -105,7 +107,7 @@ const Home: React.FC = () => {
         <Sort sortType={sortType} />
       </div>
 
-      <h2 className="content__title">Все пиццы</h2>
+      <h2 className="content__title">Все маски</h2>
 
       {status === "error" ? (
         <div>
@@ -113,7 +115,7 @@ const Home: React.FC = () => {
         </div>
       ) : (
         <div className="content__items">
-          {status === "loading" ? skeleton : pizzasBlocks}
+          {status === "loading" ? skeleton : productsBlocks}
         </div>
       )}
 

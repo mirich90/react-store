@@ -43,7 +43,7 @@ export const Search: React.FC = () => {
       <input
         ref={inputRef}
         className={styles.input}
-        placeholder="Поиск пиццы..."
+        placeholder="Поиск масок..."
         type="text"
         value={value}
         onChange={(e) => onChangeInput(e)}

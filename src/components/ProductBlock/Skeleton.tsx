@@ -5,7 +5,7 @@ const Skeleton: React.FC = (props) => (
     speed={2}
     width={280}
     height={480}
-    className="pizza-block"
+    className="product-block"
     viewBox="0 0 280 480"
     backgroundColor="#f3f3f3"
     foregroundColor="#ecebeb"

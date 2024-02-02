@@ -3,22 +3,22 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../../redux/slices/cart/slice";
 import { SelectorCartItemById } from "../../redux/slices/cart/selectors";
-import IPizzaBlockProps from "../../interfaces/IPizza";
+import IProductBlockProps from "../../interfaces/IProduct";
 
-const PizzaBlock: React.FC<IPizzaBlockProps> = ({
+const ProductBlock: React.FC<IProductBlockProps> = ({
   id,
   title,
   price,
   imageUrl,
-  types,
-  sizes,
+  materials,
+  colors,
 }) => {
   const dispatch = useDispatch();
   const cartItem = useSelector(SelectorCartItemById(id));
   const countItem: number = cartItem ? cartItem.count : 0;
   const [activeType, setActiveType] = React.useState<number>(0);
   const [activeSize, setActiveSize] = React.useState<number>(0);
-  const typeNames = ["тонкое", "традиционное"];
+  const materialNames = ["латекс", "стеклопластик"];
 
   const onClickAdd = () => {
     const item = {
@@ -26,46 +26,53 @@ const PizzaBlock: React.FC<IPizzaBlockProps> = ({
       title,
       price,
       imageUrl,
-      type: typeNames[activeType],
-      size: sizes[activeSize],
+      material: materialNames[activeType],
+      color: colors[activeSize],
       count: 0,
     };
     dispatch(addItem(item));
   };
 
   return (
-    <div className="pizza-block__wrapper">
-      <div className="pizza-block">
-        <Link to={`/pizzas/${id}`}>
-          <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
-          <h4 className="pizza-block__title">{title}</h4>
+    <div className="product-block__wrapper">
+      <div className="product-block">
+        <Link to={`/products/${id}`}>
+          <img
+            className="product-block__image"
+            src={"./img/products/" + imageUrl}
+            alt="Product"
+          />
+          <h4 className="product-block__title">{title}</h4>
         </Link>
-        <div className="pizza-block__selector">
+
+        <div className="product-block__selector">
           <ul>
-            {types.map((typeId: number) => (
+            {materials.map((materialId: number) => (
               <li
-                onClick={() => setActiveType(typeId)}
-                key={typeId}
-                className={activeType === typeId ? "active" : ""}
+                onClick={() => setActiveType(materialId)}
+                key={materialId}
+                className={activeType === materialId ? "active" : ""}
               >
-                {typeNames[typeId]}
+                {materialNames[materialId]}
               </li>
             ))}
           </ul>
+
           <ul>
-            {sizes.map((size, i) => (
+            {colors.map((color, i) => (
               <li
                 onClick={() => setActiveSize(i)}
                 key={i}
                 className={activeSize === i ? "active" : ""}
               >
-                {size} см.
+                {color}
               </li>
             ))}
           </ul>
         </div>
-        <div className="pizza-block__bottom">
-          <div className="pizza-block__price">от {price} ₽</div>
+
+        <div className="product-block__bottom">
+          <div className="product-block__price">от {price} ₽</div>
           <button
             onClick={onClickAdd}
             className="button button--outline button--add"
@@ -90,4 +97,4 @@ const PizzaBlock: React.FC<IPizzaBlockProps> = ({
     </div>
   );
 };
-export default PizzaBlock;
+export default ProductBlock;
