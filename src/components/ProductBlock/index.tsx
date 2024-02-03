@@ -17,8 +17,8 @@ const ProductBlock: React.FC<IProductBlockProps> = ({
   const cartItem = useSelector(SelectorCartItemById(id));
   const countItem: number = cartItem ? cartItem.count : 0;
   const [activeType, setActiveType] = React.useState<number>(0);
-  const [activeSize, setActiveSize] = React.useState<number>(0);
-  const materialNames = ["латекс", "стеклопластик"];
+  const [activeColor, setActiveColor] = React.useState<number>(0);
+  const materialNames = ["латекс", "пластик"];
 
   const onClickAdd = () => {
     const item = {
@@ -27,7 +27,7 @@ const ProductBlock: React.FC<IProductBlockProps> = ({
       price,
       imageUrl,
       material: materialNames[activeType],
-      color: colors[activeSize],
+      color: activeColor,
       count: 0,
     };
     dispatch(addItem(item));
@@ -39,7 +39,7 @@ const ProductBlock: React.FC<IProductBlockProps> = ({
         <Link to={`/products/${id}`}>
           <img
             className="product-block__image"
-            src={"./img/products/" + imageUrl}
+            src={`/img/products/${imageUrl}-${activeColor + 1}.jpg`}
             alt="Product"
           />
           <h4 className="product-block__title">{title}</h4>
@@ -61,12 +61,11 @@ const ProductBlock: React.FC<IProductBlockProps> = ({
           <ul>
             {colors.map((color, i) => (
               <li
-                onClick={() => setActiveSize(i)}
+                onClick={() => setActiveColor(i)}
                 key={i}
-                className={activeSize === i ? "active" : ""}
-              >
-                {color}
-              </li>
+                style={{ background: color }}
+                className={activeColor === i ? "active color" : "color"}
+              ></li>
             ))}
           </ul>
         </div>

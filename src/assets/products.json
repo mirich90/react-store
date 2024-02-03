@@ -1,0 +1,212 @@
+[
+  {
+    "id": "1",
+    "imageUrl": "1",
+    "title": "Маска Oni Mask с черными клыками",
+    "materials": [0, 1],
+    "colors": ["gold", "grey", "violet", "cyan"],
+    "price": 4450,
+    "category": 1,
+    "rating": 6
+  },
+  {
+    "id": "2",
+    "imageUrl": "2",
+    "title": "Маска Oni Mask с белыми клыками",
+    "materials": [0, 1],
+    "colors": ["white", "green", "black", "red"],
+    "price": 4745,
+    "category": 1,
+    "rating": 6
+  },
+  {
+    "id": "3",
+    "imageUrl": "3",
+    "title": "Маска Oni Half Mask с белыми клыками",
+    "materials": [0, 1],
+    "colors": ["green", "black", "white"],
+    "price": 2945,
+    "category": 1,
+    "rating": 6
+  },
+  {
+    "id": "4",
+    "imageUrl": "4",
+    "title": "Маска Oni Half Mask с черными клыками",
+    "materials": [0, 1],
+    "colors": ["blue", "grey", "gold", "red"],
+    "price": 2995,
+    "category": 1,
+    "rating": 6
+  },
+  {
+    "id": "5",
+    "imageUrl": "5",
+    "title": "Маска Half Face Mask",
+    "materials": [0, 1],
+    "colors": ["red"],
+    "price": 2665,
+    "category": 1,
+    "rating": 6
+  },
+  {
+    "id": "6",
+    "imageUrl": "6",
+    "title": "Маска Metallic Half Face Mask",
+    "materials": [0],
+    "colors": ["white", "grey"],
+    "price": 2025,
+    "category": 1,
+    "rating": 6
+  },
+  {
+    "id": "7",
+    "imageUrl": "7",
+    "title": "Маска Demonic Half Face Mask",
+    "materials": [0, 1],
+    "colors": ["black"],
+    "price": 2675,
+    "category": 1,
+    "rating": 6
+  },
+  {
+    "id": "8",
+    "imageUrl": "8",
+    "title": "Маска Kitsune Mask",
+    "materials": [0, 1],
+    "colors": ["black", "red", "violet"],
+    "price": 2405,
+    "category": 4,
+    "rating": 6
+  },
+  {
+    "id": "9",
+    "imageUrl": "9",
+    "title": "Маска Half Face Oni Mask",
+    "materials": [0],
+    "colors": ["gold", "black", "blue", "violet"],
+    "price": 2775,
+    "category": 1,
+    "rating": 6
+  },
+  {
+    "id": "10",
+    "imageUrl": "10",
+    "title": "Маска Oni Mempo Mask",
+    "materials": [0, 1],
+    "colors": ["red"],
+    "price": 3045,
+    "category": 1,
+    "rating": 6
+  },
+  {
+    "id": "11",
+    "imageUrl": "11",
+    "title": "Маска Warrior Oni Half Mask",
+    "materials": [0, 1],
+    "colors": ["red"],
+    "price": 3285,
+    "category": 1,
+    "rating": 6
+  },
+  {
+    "id": "12",
+    "imageUrl": "12",
+    "title": "Маска Big Horn Oni Mask",
+    "materials": [0, 1],
+    "colors": ["gold", "red"],
+    "price": 5890,
+    "category": 1,
+    "rating": 6
+  },
+  {
+    "id": "13",
+    "imageUrl": "13",
+    "title": "Маска Demon Mask",
+    "materials": [0, 1],
+    "colors": ["violet", "green"],
+    "price": 5245,
+    "category": 1,
+    "rating": 6
+  },
+  {
+    "id": "14",
+    "imageUrl": "14",
+    "title": "Маска Shogun Mask",
+    "materials": [0, 1],
+    "colors": ["red"],
+    "price": 4050,
+    "category": 1,
+    "rating": 6
+  },
+  {
+    "id": "15",
+    "imageUrl": "15",
+    "title": "Маска Samurai Mask",
+    "materials": [0, 1],
+    "colors": ["black", "gold", "red"],
+    "price": 4990,
+    "category": 2,
+    "rating": 6
+  },
+  {
+    "id": "16",
+    "imageUrl": "16",
+    "title": "Маска Samurai Devil Mask",
+    "materials": [0, 1],
+    "colors": ["white"],
+    "price": 6075,
+    "category": 2,
+    "rating": 6
+  },
+  {
+    "id": "17",
+    "imageUrl": "17",
+    "title": "Маска Samurai Kabuki Mask",
+    "materials": [0, 1],
+    "colors": ["red"],
+    "price": 4545,
+    "category": 2,
+    "rating": 6
+  },
+  {
+    "id": "18",
+    "imageUrl": "18",
+    "title": "Маска Japanese Hannya Mask",
+    "materials": [0, 1],
+    "colors": ["red", "white"],
+    "price": 4895,
+    "category": 3,
+    "rating": 6
+  },
+  {
+    "id": "19",
+    "imageUrl": "19",
+    "title": "Маска Hannya Mask",
+    "materials": [0, 1],
+    "colors": ["white"],
+    "price": 5600,
+    "category": 3,
+    "rating": 6
+  },
+  {
+    "id": "20",
+    "imageUrl": "20",
+    "title": "Маска Traditional Hannya Mask",
+    "materials": [0, 1],
+    "colors": ["red"],
+    "price": 5245,
+    "category": 3,
+    "rating": 6
+  },
+  {
+    "id": "21",
+    "imageUrl": "21",
+    "title": "Маска Japanese Metallic Hannya Mask",
+    "materials": [0, 1],
+    "colors": ["bronze", "silver"],
+    "price": 5125,
+    "category": 3,
+    "rating": 6
+  }
+]

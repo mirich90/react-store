@@ -1,3 +1,5 @@
+@import "../../scss/variables";
+
 .root {
   position: relative;
 }
@@ -8,6 +10,12 @@
   width: 400px;
   padding: 12px 20px;
   padding-left: 45px;
+  background: #313131;
+  color: $fontcolor;
+  &::placeholder {
+    color: $fontcolor;
+    opacity: 0.5;
+  }
   &:focus {
     border: 1px solid rgba(0, 0, 0, 0.2);
   }
@@ -15,17 +23,19 @@
 .icon {
   width: 22px;
   height: 22px;
-  opacity: 0.3;
+  opacity: 0.8;
   position: absolute;
   top: 13px;
+  color: $fontcolor;
   &-search {
     left: 14px;
+    opacity: 0.7;
   }
   &-close {
     cursor: pointer;
     right: 14px;
     &:hover {
-      opacity: 0.8;
+      opacity: 0.7;
     }
   }
 }

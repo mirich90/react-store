@@ -1,8 +1,6 @@
 import React from "react";
-import qs from "qs";
-import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { setCategory, setPage, setFilters } from "../redux/slices/filter/slice";
+import { setCategory, setPage } from "../redux/slices/filter/slice";
 
 import Categories from "../components/Categories";
 import { Pagination } from "../components/Pagination";
@@ -10,17 +8,11 @@ import ProductBlock from "../components/ProductBlock";
 import Skeleton from "../components/ProductBlock/Skeleton";
 import Sort from "../components/Sort";
 import { fetchProducts } from "../redux/slices/product/slice";
-import ISortType from "../interfaces/ISortType";
 import IProductBlockProps from "../interfaces/IProduct";
 import { RootState, useAppDispatch } from "../redux/store";
-import ISort from "../interfaces/ISortId";
-import SortTypeDefault from "../interfaces/ISortTypeDefault";
 
 const Home: React.FC = () => {
-  const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const isSearch = React.useRef<boolean>(false);
-  const isMounted = React.useRef<boolean>(false);
 
   const { items: products, status } = useSelector(
     (state: any) => state.product
@@ -28,6 +20,20 @@ const Home: React.FC = () => {
   const { category, page, limit, sortType, search } = useSelector(
     (state: RootState) => state.filter
   );
+
+  // mockapi.io возвращает headers["x-total-count"] только на платном тарифе, поэтому хардкодим
+  const getCategory = () => {
+    switch (category) {
+      case 1:
+        return 3;
+      case 2:
+        return 1;
+      case 3:
+        return 1;
+      default:
+        return 4;
+    }
+  };
 
   const sortId = sortType.id;
   const order = sortId.includes("-") ? "asc" : "desc";
@@ -40,32 +46,6 @@ const Home: React.FC = () => {
   const onChangePage = (pageId: number) => {
     dispatch(setPage(pageId));
   };
-
-  // React.useEffect(() => {
-  //   if (isMounted.current) {
-  //     const queryString = qs.stringify({
-  //       category,
-  //       page,
-  //       limit,
-  //       sortBy: sortType.id,
-  //       order,
-  //     });
-  //     navigate(`?${queryString}`);
-  //   }
-  //   isMounted.current = true;
-  // }, [category, sortType, order, search, page, limit]);
-
-  // React.useEffect(() => {
-  //   if (window.location.search) {
-  //     const params = qs.parse(window.location.search.substring(1));
-  //     const sortType =
-  //       sortList.find((obj: ISortType) => obj.id === params.id) || SortTypeDefault;
-
-  //     dispatch(setFilters({ ...params, sortType }));
-
-  //     isSearch.current = true;
-  //   }
-  // }, []);
 
   React.useEffect(() => {
     window.scroll(0, 0);
@@ -87,11 +67,7 @@ const Home: React.FC = () => {
       );
     };
 
-    // if (!isSearch.current) {
     getProducts();
-    // }
-
-    // isSearch.current = false;
   }, [category, sortType.id, search, page, limit]);
 
   const productsBlocks = products.map((product: IProductBlockProps) => (
@@ -102,6 +78,14 @@ const Home: React.FC = () => {
 
   return (
     <div className="container">
+      <div className="content__header">
+        <h1>Японские маски по демократичной цене</h1>
+        <p>
+          Японские маски Oni, Samurai, Hannya. В нашем магазине вы найдете
+          традиционные японские маски самого высокого качества.
+        </p>
+      </div>
+
       <div className="content__top">
         <Categories value={category} onChangeCategory={onChangeCategory} />
         <Sort sortType={sortType} />
@@ -120,7 +104,7 @@ const Home: React.FC = () => {
       )}
 
       <Pagination
-        lengthPage={2}
+        lengthPage={getCategory()}
         onChangePage={(pageId: number) => onChangePage(pageId)}
         currentPage={page}
       />

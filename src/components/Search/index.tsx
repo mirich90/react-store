@@ -33,6 +33,7 @@ export const Search: React.FC = () => {
         className={`${styles.icon} ${styles["icon-search"]}`}
         height="512"
         viewBox="0 0 512 512"
+        fill="#FFF"
         width="512"
         xmlns="http://www.w3.org/2000/svg"
       >

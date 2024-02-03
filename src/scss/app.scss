@@ -3,17 +3,21 @@
 
 @import "components/all";
 
-body {
-  background-color: $background;
+html {
+  background: #000;
 }
-
+body {
+  /* webpackIgnore: true */
+  background: url("/img/bg.jpg") no-repeat;
+  background-size: 100%;
+}
 .wrapper {
   width: calc(100vw - 100px);
   height: 100%;
-  background-color: #fff;
+  background-color: #000;
   margin: 50px auto;
   border-radius: 10px;
-  max-width: 1400px;
+  max-width: 1800px;
 }
 
 .content {
@@ -21,6 +25,16 @@ body {
 
   &__title {
     margin: 35px 0;
+  }
+
+  &__header {
+    p {
+      font-size: 1.4rem;
+      padding: 1rem 0 2rem;
+    }
+    h1 {
+      line-height: 1;
+    }
   }
 
   &__items {
@@ -70,6 +84,40 @@ body {
   }
 }
 
+.fullProduct {
+  font-size: 1.6rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 20px 20px;
+  justify-content: space-between;
+  padding: 4rem;
+  &__description {
+    padding: 2rem;
+    p,
+    h2,
+    ul,
+    li {
+      padding-bottom: 1rem;
+    }
+    h2 {
+      font-size: 2rem;
+      padding-top: 2rem;
+      font-weight: 800;
+      color: $orange;
+    }
+    h1 {
+      padding-bottom: 3rem;
+      font-size: 4rem;
+    }
+  }
+  &__button {
+    font-size: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    justify-items: start;
+    padding-left: 4rem;
+  }
+}
 .cart {
   &__top {
     display: flex;
@@ -89,7 +137,7 @@ body {
       height: 30px;
       margin-right: 10px;
       path {
-        stroke: $black;
+        stroke: $fontcolor;
         stroke-width: 1.9;
       }
     }

@@ -29,6 +29,8 @@ export const cartSlice = createSlice({
       if (findItem && findItem.count > 0) {
         findItem.count--;
       }
+
+      state.totalPrice = calcTotalPrice(state.items);
     },
     removeItem(state, action: PayloadAction<ICartItem>) {
       state.items = state.items.filter((obj) => obj.id !== action.payload.id);

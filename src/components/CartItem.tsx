@@ -29,13 +29,15 @@ const CartItem: React.FC<ICartItem> = ({
   return (
     <div className="cart__item">
       <div className="cart__item-img">
-        <img className="product-block__image" src={imageUrl} alt="Product" />
+        <img
+          className="product-block__image"
+          src={`./img/products/${imageUrl}-${color + 1}.jpg`}
+          alt="Product"
+        />
       </div>
       <div className="cart__item-info">
         <h3>{title}</h3>
-        <p>
-          {material}, {color}
-        </p>
+        <p>{material}</p>
       </div>
       <div className="cart__item-count">
         <button

@@ -7,7 +7,7 @@ const Skeleton: React.FC = (props) => (
     height={480}
     className="product-block"
     viewBox="0 0 280 480"
-    backgroundColor="#f3f3f3"
+    backgroundColor="#313131"
     foregroundColor="#ecebeb"
     {...props}
   >

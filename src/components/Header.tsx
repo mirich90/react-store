@@ -1,4 +1,4 @@
-import logoImg from "../assets/img/product-logo.svg";
+import logoImg from "../assets/img/logo.webp";
 import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import { Search } from "./Search";
@@ -26,11 +26,7 @@ function Header() {
     <div className="header">
       <div className="container">
         <Link className="header__logo" to="/">
-          <img width="38" src={logoImg} alt="Product logo" />
-          <div>
-            <h1>React Product</h1>
-            <p>самая вкусная пицца во вселенной</p>
-          </div>
+          <img width="200" src={logoImg} alt="Product logo" />
         </Link>
 
         <Search />

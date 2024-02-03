@@ -11,14 +11,7 @@ const Categories: React.FC<ICategoriesProps> = ({
     onChangeCategory,
   });
 
-  const categories = [
-    "Все",
-    "Мясные",
-    "Вегетарианская",
-    "Гриль",
-    "Острые",
-    "Закрытые",
-  ];
+  const categories = ["Все", "Oni", "Samurai", "Hannya", "Kitsune"];
 
   return (
     <div className="categories">
