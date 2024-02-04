@@ -9,7 +9,7 @@
 
 ## Демо
 
-[Демо]https://react-store-nu-sepia.vercel.app/
+https://react-store-nu-sepia.vercel.app/
 
 ## Превью
 
