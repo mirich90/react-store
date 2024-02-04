@@ -41,6 +41,7 @@ const ProductBlock: React.FC<IProductBlockProps> = ({
             className="product-block__image"
             src={`/img/products/${imageUrl}-${activeColor + 1}.jpg`}
             alt="Product"
+            loading="lazy"
           />
           <h4 className="product-block__title">{title}</h4>
         </Link>

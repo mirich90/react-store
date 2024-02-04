@@ -33,6 +33,7 @@ const CartItem: React.FC<ICartItem> = ({
           className="product-block__image"
           src={`./img/products/${imageUrl}-${color + 1}.jpg`}
           alt="Product"
+          loading="lazy"
         />
       </div>
       <div className="cart__item-info">

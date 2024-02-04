@@ -26,7 +26,7 @@ function Header() {
     <div className="header">
       <div className="container">
         <Link className="header__logo" to="/">
-          <img width="200" src={logoImg} alt="Product logo" />
+          <img width="200" src={logoImg} alt="Product logo" loading="lazy" />
         </Link>
 
         <Search />
