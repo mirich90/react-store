@@ -9,15 +9,15 @@
 
 ### Главная страница сайта:
 
-![Alt-текст](https://github.com/mirich90/react-store/blob/master/1.png?raw=true "Главная страница сайта")
+![Alt-текст](https://github.com/mirich90/react-store/blob/master/1.PNG?raw=true "Главная страница сайта")
 
 ### Страница товара:
 
-![Alt-текст](https://github.com/mirich90/react-store/blob/master/2.png?raw=true "Страница товара")
+![Alt-текст](https://github.com/mirich90/react-store/blob/master/2.PNG?raw=true "Страница товара")
 
 ### Корзина:
 
-![Alt-текст](https://github.com/mirich90/react-store/blob/master/3.png?raw=true "Корзина")
+![Alt-текст](https://github.com/mirich90/react-store/blob/master/3.PNG?raw=true "Корзина")
 
 ## Project setup
 
